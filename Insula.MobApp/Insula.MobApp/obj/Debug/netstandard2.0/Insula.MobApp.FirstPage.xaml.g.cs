@@ -11,8 +11,7 @@
 namespace Insula.MobApp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\lixich\\source\\repos\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp\\FirstPage." +
-        "xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\lixic\\GitHub\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp\\FirstPage.xaml")]
     public partial class FirstPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

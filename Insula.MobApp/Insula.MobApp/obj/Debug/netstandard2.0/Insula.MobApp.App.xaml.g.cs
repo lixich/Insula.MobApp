@@ -11,7 +11,7 @@
 namespace Insula.MobApp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\lixich\\source\\repos\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp\\App.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\lixic\\GitHub\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp\\App.xaml")]
     public partial class App : global::Xamarin.Forms.Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

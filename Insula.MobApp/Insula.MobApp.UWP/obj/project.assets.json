@@ -234,6 +234,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk/2.1.1": {
         "type": "package",
         "build": {
@@ -278,6 +287,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "Xamarin.Forms": "2.5.0.121934"
         },
         "compile": {
@@ -522,6 +532,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk/2.1.1": {
         "type": "package",
         "build": {
@@ -739,6 +758,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "Xamarin.Forms": "2.5.0.121934"
         },
         "compile": {
@@ -983,6 +1003,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
         "type": "package",
         "compile": {
@@ -1201,6 +1230,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "Xamarin.Forms": "2.5.0.121934"
         },
         "compile": {
@@ -1445,6 +1475,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk/2.1.1": {
         "type": "package",
         "build": {
@@ -1662,6 +1701,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "Xamarin.Forms": "2.5.0.121934"
         },
         "compile": {
@@ -1906,6 +1946,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk/2.1.1": {
         "type": "package",
         "build": {
@@ -2124,6 +2173,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "Xamarin.Forms": "2.5.0.121934"
         },
         "compile": {
@@ -2368,6 +2418,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk/2.1.1": {
         "type": "package",
         "build": {
@@ -2585,6 +2644,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "Xamarin.Forms": "2.5.0.121934"
         },
         "compile": {
@@ -2829,6 +2889,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Newtonsoft.Json/11.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk/2.1.1": {
         "type": "package",
         "build": {
@@ -3047,6 +3116,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "11.0.2",
           "Xamarin.Forms": "2.5.0.121934"
         },
         "compile": {
@@ -5008,10 +5078,10 @@
       "path": "microsoft.net.uwpcoreruntimesdk/2.1.1",
       "files": [
         "LICENSE.TXT",
-        "Microsoft.Net.UWPCoreRuntimeSdk.2.1.1.nupkg.sha512",
-        "Microsoft.Net.UWPCoreRuntimeSdk.nuspec",
         "THIRD-PARTY-NOTICES.TXT",
         "build/Microsoft.Net.UWPCoreRuntimeSdk.props",
+        "microsoft.net.uwpcoreruntimesdk.2.1.1.nupkg.sha512",
+        "microsoft.net.uwpcoreruntimesdk.nuspec",
         "tools/CoreRuntime/Microsoft.Build.Net.CoreRuntimeTask.dll",
         "tools/CoreRuntime/Microsoft.Cci.dll",
         "tools/CoreRuntime/Microsoft.Net.CoreRuntime.settings.targets",
@@ -5448,6 +5518,34 @@
         "lib/netstandard1.0/_._"
       ]
     },
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "type": "package",
+      "path": "newtonsoft.json/11.0.2",
+      "files": [
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
     "runtime.win10-arm-aot.Microsoft.NETCore.UniversalWindowsPlatform/6.0.1": {
       "sha512": "ZGShwJB9yNwHyM+w7g8int9gmurykzvy+SWv74+lCul0ddTmtI9WhXrAg3Dyub9urV7/lUtUjCjH+cSC5/5t7A==",
       "type": "package",
@@ -5634,8 +5732,8 @@
         "THIRD-PARTY-NOTICES.TXT",
         "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.props",
         "build/runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.targets",
-        "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.2.1.1.nupkg.sha512",
-        "runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk.nuspec",
+        "runtime.win10-arm.microsoft.net.uwpcoreruntimesdk.2.1.1.nupkg.sha512",
+        "runtime.win10-arm.microsoft.net.uwpcoreruntimesdk.nuspec",
         "tools/AppLocal/uwpshim.exe",
         "tools/Appx/Microsoft.NET.CoreRuntime.2.1.appx",
         "tools/CoreRuntime/copywin32resources.exe"
@@ -6003,8 +6101,8 @@
         "THIRD-PARTY-NOTICES.TXT",
         "build/runtime.win10-x64.Microsoft.Net.UWPCoreRuntimeSdk.props",
         "build/runtime.win10-x64.Microsoft.Net.UWPCoreRuntimeSdk.targets",
-        "runtime.win10-x64.Microsoft.Net.UWPCoreRuntimeSdk.2.1.1.nupkg.sha512",
-        "runtime.win10-x64.Microsoft.Net.UWPCoreRuntimeSdk.nuspec",
+        "runtime.win10-x64.microsoft.net.uwpcoreruntimesdk.2.1.1.nupkg.sha512",
+        "runtime.win10-x64.microsoft.net.uwpcoreruntimesdk.nuspec",
         "tools/AppLocal/uwpshim.exe",
         "tools/Appx/Microsoft.NET.CoreRuntime.2.1.appx",
         "tools/CoreRuntime/copywin32resources.exe"
@@ -6372,8 +6470,8 @@
         "THIRD-PARTY-NOTICES.TXT",
         "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.props",
         "build/runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.targets",
-        "runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.2.1.1.nupkg.sha512",
-        "runtime.win10-x86.Microsoft.Net.UWPCoreRuntimeSdk.nuspec",
+        "runtime.win10-x86.microsoft.net.uwpcoreruntimesdk.2.1.1.nupkg.sha512",
+        "runtime.win10-x86.microsoft.net.uwpcoreruntimesdk.nuspec",
         "tools/AppLocal/uwpshim.exe",
         "tools/Appx/Microsoft.NET.CoreRuntime.2.1.appx",
         "tools/CoreRuntime/copywin32resources.exe"
@@ -6747,28 +6845,29 @@
     "UAP,Version=v10.0.16299": [
       "Insula.MobApp >= 1.0.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.1",
+      "Newtonsoft.Json >= 11.0.2",
       "Xamarin.Forms >= 2.5.0.121934"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lixich\\.nuget\\packages\\": {},
+    "C:\\Users\\lixic\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lixich\\source\\repos\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.UWP\\Insula.MobApp.UWP.csproj",
+      "projectUniqueName": "C:\\Users\\lixic\\GitHub\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.UWP\\Insula.MobApp.UWP.csproj",
       "projectName": "Insula.MobApp.UWP",
-      "projectPath": "C:\\Users\\lixich\\source\\repos\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.UWP\\Insula.MobApp.UWP.csproj",
-      "packagesPath": "C:\\Users\\lixich\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lixich\\source\\repos\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.UWP\\obj\\",
+      "projectPath": "C:\\Users\\lixic\\GitHub\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.UWP\\Insula.MobApp.UWP.csproj",
+      "packagesPath": "C:\\Users\\lixic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lixic\\GitHub\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\lixich\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lixic\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -6782,8 +6881,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "C:\\Users\\lixich\\source\\repos\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.csproj": {
-              "projectPath": "C:\\Users\\lixich\\source\\repos\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.csproj"
+            "C:\\Users\\lixic\\GitHub\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.csproj": {
+              "projectPath": "C:\\Users\\lixic\\GitHub\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp\\Insula.MobApp.csproj"
             }
           }
         }
@@ -6795,6 +6894,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.0.1, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[11.0.2, )"
           },
           "Xamarin.Forms": {
             "target": "Package",

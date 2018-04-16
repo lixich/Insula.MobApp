@@ -109,6 +109,7 @@ class MonoPackageManager_Resources {
 		"Insula.MobApp.Android.dll",
 		"FormsViewGroup.dll",
 		"Insula.MobApp.dll",
+		"Newtonsoft.Json.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
 		"Xamarin.Android.Support.Annotations.dll",
 		"Xamarin.Android.Support.Compat.dll",
@@ -132,5 +133,5 @@ class MonoPackageManager_Resources {
 	};
 	public static final String[] Dependencies = new String[]{
 	};
-	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_25";
+	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_27";
 }

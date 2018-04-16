@@ -1,1 +1,1 @@
-C:\Users\lixich\source\repos\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\Insula.MobApp.UWP.csproj;x86
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\Insula.MobApp.UWP.csproj;x86
