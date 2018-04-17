@@ -15,6 +15,6 @@ namespace Insula.MobApp.Models
         public static int LogoIconHeight = 100;
 
         //Login
-        public static string LoginUrl = "http://lixich.pythonanywhere.com/user";
+        public static string LoginUrl = "http://lixich.pythonanywhere.com/user/";
     }
 }

@@ -36,12 +36,15 @@ namespace Insula.MobApp.Views
             if (user.CheckInformation())
             {
                 var result = await App.RestService.Login(user);
-                App.User = result;
-                DisplayAlert("Login", "Login Success." + result.Id.ToString(), "Ok");
-                //else DisplayAlert("Login", "Login or Password Failed", "Ok");
+                if (result != null)
+                {
+                    App.User = result;
+                    await DisplayAlert("Login", "Login Success.", "OK");
+                }
+                else await DisplayAlert("Login", "Login or Password Failed", "OK");
 
             }
-            else DisplayAlert("Login", "Login Not Correct, empty username or password.", "Ok");
+            else await DisplayAlert("Login", "Login Not Correct, empty username or password.", "OK");
         }
     }
 }

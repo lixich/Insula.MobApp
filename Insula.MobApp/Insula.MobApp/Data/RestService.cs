@@ -16,8 +16,8 @@ namespace Insula.MobApp.Data
         public RestService()
         {
             client = new HttpClient();
-            client.MaxResponseContentBufferSize = 256000;
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applictaion/json"));
+            //client.MaxResponseContentBufferSize = 256000;
+            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task<User> Login(User user)
@@ -27,25 +27,16 @@ namespace Insula.MobApp.Data
             try
             {
                 var response = await client.GetAsync(Constants.LoginUrl);
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     var JsonResult = response.Content.ReadAsStringAsync().Result;
-                    try
-                    {
-                        var ContentResp = JsonConvert.DeserializeObject<User>(JsonResult);
-                        return ContentResp;
-                    }
-                    catch (Exception)
-                    {
-                        throw new Exception("DeserializeObject " + JsonResult.ToString());
-                        //return null;
-                    }
+                    var ContentResp = JsonConvert.DeserializeObject<User>(JsonResult);
+                    return ContentResp;
                 }
             }
             catch (Exception)
             {
-                throw new Exception("StatusCode");
-                //return null;
+                return null;
             }
             return null;
         }

@@ -18,7 +18,7 @@ namespace Insula.MobApp.Models
 
         public bool CheckInformation()
         {
-            if (!this.Username.Equals("") && !this.Password.Equals(""))
+            if (this.Username != null && this.Password != null && !this.Username.Equals("") && !this.Password.Equals(""))
                 return true;
             else
                 return false;

@@ -302,6 +302,7 @@ C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debu
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debug\Core\AppxManifest.xml
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debug\Core\Insula.MobApp.UWP.exe
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debug\Insula.MobApp.UWP.build.appxrecipe
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debug\Newtonsoft.Json.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debug\clrcompression.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debug\Microsoft.CSharp.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debug\Microsoft.VisualBasic.dll
@@ -587,4 +588,3 @@ C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\obj\x86\Debu
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\obj\x86\Debug\ProjectArchitectures.txt
-C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.UWP\bin\x86\Debug\Newtonsoft.Json.dll
