@@ -25,6 +25,7 @@ namespace Insula.MobApp.Views
             Label_Password.TextColor = Constants.MainTextColor;
             ActivitySpinner.IsVisible = false;
             LogoIcon.HeightRequest = Constants.LogoIconHeight;
+            App.StartCheckIfInternet(Label_Internet, this);
 
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
             Entry_Password.Completed += (s, e) => Button_Clicked_SignIn(s, e);

@@ -5,6 +5,7 @@
     <StackLayout x:Name="MasterLayout">
 
         <StackLayout x:Name="LogoStack">
+            <Label x:Name="Label_Internet" HorizontalOptions="Center" TextColor="White" BackgroundColor="Red"/>
             <Image x:Name="LogoIcon" Source="LogoIcon.png" Margin="0,80,0,0"/>
         </StackLayout>
 
