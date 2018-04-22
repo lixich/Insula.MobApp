@@ -51,6 +51,7 @@ C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debu
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Security.SecureString.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Web.Services.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Xml.XPath.XDocument.dll
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.ComponentModel.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Threading.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Collections.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Collections.Concurrent.dll
@@ -64,7 +65,6 @@ C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debu
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.ObjectModel.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Globalization.dll
-C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.ComponentModel.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Linq.Expressions.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.IO.dll

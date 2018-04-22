@@ -17,88 +17,114 @@ namespace Insula.MobApp.Data
         {
             client = new HttpClient();
             //client.MaxResponseContentBufferSize = 256000;
-            //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<User> Login(User user)
+        public async Task<User> Authentication(User user)
         {
             var base64String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{user.Username}:{user.Password}"));
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64String);
             try
             {
-                var response = await client.GetAsync(Constants.LoginUrl);
+                var response = await client.GetAsync(Constants.UserUrl);
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
-                    var JsonResult = response.Content.ReadAsStringAsync().Result;
-                    var ContentResp = JsonConvert.DeserializeObject<User>(JsonResult);
-                    return ContentResp;
+                    var jsonResult = response.Content.ReadAsStringAsync().Result;
+                    var contentResp = JsonConvert.DeserializeObject<User>(jsonResult);
+                    App.User = contentResp;
+                    return contentResp;
                 }
             }
-            catch (Exception)
-            {
-                return null;
-            }
+            catch (Exception) { return null; }
             return null;
         }
 
-        public async Task<User> GetResponseLogin<User>(string weburl, FormUrlEncodedContent content)
+        public void Logout()
         {
-            var response = await client.PostAsync(weburl, content);
-            var jsonResult = response.Content.ReadAsStringAsync().Result;
-            var responseObject = JsonConvert.DeserializeObject<User>(jsonResult);
-            return responseObject;
-        }
-
-        public async Task<T> PostResponse<T>(string weburl, string jsonstring) where T :class
-        {
-            var User = App.User;
-            string ContentType = "application/json";
-            //client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Username", User.Username);
-            try
-            {
-                var Result = await client.PostAsync(weburl, new StringContent(jsonstring, Encoding.UTF8, ContentType));
-                if (Result.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    var JsonResult = Result.Content.ReadAsStringAsync().Result;
-                    try
-                    {
-                        var ContentResp = JsonConvert.DeserializeObject<T>(JsonResult);
-                        return ContentResp;
-                    }
-                    catch { return null; }
-                }
-            }
-            catch { return null; }
-            return null;
+            App.User = null; 
         }
 
         public async Task<T> GetResponse<T>(string weburl) where T : class
         {
-            var User = App.User;
-            //client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Username", User.Username);
+            var base64String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{App.User.Username}:{App.User.Password}"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64String);
             try
             {
                 var response = await client.GetAsync(weburl);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    var JsonResult = response.Content.ReadAsStringAsync().Result;
+                    var jsonResult = response.Content.ReadAsStringAsync().Result;
                     try
                     {
-                        var ContentResp = JsonConvert.DeserializeObject<T>(JsonResult);
-                        return ContentResp;
+                        var contentResp = JsonConvert.DeserializeObject<T>(jsonResult);
+                        return contentResp;
                     }
-                    catch (Exception)
-                    {
-                        return null;
-                    }
+                    catch (Exception) { return null; }
                 }
             }
-            catch (Exception)
-            {
-
-                return null;
-            }
+            catch (Exception) { return null; }
             return null;
+        }
+        public async Task<T> PostResponse<T>(string weburl, string jsonstring) where T :class
+        {
+            var base64String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{App.User.Username}:{App.User.Password}"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64String);
+            string ContentType = "application/json";
+            try
+            {
+                var response = await client.PostAsync(weburl, new StringContent(jsonstring, Encoding.UTF8, ContentType));
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var jsonResult = response.Content.ReadAsStringAsync().Result;
+                    try
+                    {
+                        var contentResp = JsonConvert.DeserializeObject<T>(jsonResult);
+                        return contentResp;
+                    }
+                    catch (Exception) { return null; }
+                }
+            }
+            catch (Exception) { return null; }
+            return null;
+        }
+
+        public async Task<T> PutResponse<T>(string weburl, string jsonstring) where T : class
+        {
+            var base64String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{App.User.Username}:{App.User.Password}"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64String);
+            string ContentType = "application/json";
+            try
+            {
+                var response = await client.PutAsync(weburl, new StringContent(jsonstring, Encoding.UTF8, ContentType));
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var jsonResult = response.Content.ReadAsStringAsync().Result;
+                    try
+                    {
+                        var contentResp = JsonConvert.DeserializeObject<T>(jsonResult);
+                        return contentResp;
+                    }
+                    catch (Exception) { return null; }
+                }
+            }
+            catch (Exception) { return null; }
+            return null;
+        }
+
+        public async Task<bool> DeleteResponse(string weburl)
+        {
+            var base64String = Convert.ToBase64String(Encoding.ASCII.GetBytes($"{App.User.Username}:{App.User.Password}"));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64String);
+            try
+            {
+                var response = await client.DeleteAsync(weburl);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return true;
+                }
+            }
+            catch (Exception) { return false; }
+            return false;
         }
     }
 }

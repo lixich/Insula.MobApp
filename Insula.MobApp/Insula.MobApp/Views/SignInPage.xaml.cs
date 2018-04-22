@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Insula.MobApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
+	public partial class SignInPage : ContentPage
 	{
-		public LoginPage ()
+		public SignInPage()
 		{
 			InitializeComponent ();
             Init();
@@ -21,12 +21,13 @@ namespace Insula.MobApp.Views
         void Init()
         {
             BackgroundColor = Constants.BackgroundColor;
-            Label_Username.TextColor = Constants.MainTextColor;
-            Label_Password.TextColor = Constants.MainTextColor;
+            Label_Username.TextColor = Constants.TextColor;
+            Label_Password.TextColor = Constants.TextColor;
             ActivitySpinner.IsVisible = false;
             LogoIcon.HeightRequest = Constants.LogoIconHeight;
             App.StartCheckIfInternet(Label_Internet, this);
 
+            //-----Delegates
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
             Entry_Password.Completed += (s, e) => Button_Clicked_SignIn(s, e);
         }
@@ -36,16 +37,22 @@ namespace Insula.MobApp.Views
             User user = new User(Entry_Username.Text, Entry_Password.Text);
             if (user.CheckInformation())
             {
-                var result = await App.RestService.Login(user);
-                if (result != null)
+                user = await App.RestService.Authentication(user);
+                if (user != null)
                 {
-                    App.User = result;
-                    await DisplayAlert("Login", "Login Success.", "OK");
+                    //await DisplayAlert("Login", "Login Success.", "OK");
+                    Navigation.InsertPageBefore(new DiaryListPage(), this);
+                    await Navigation.PopAsync();
                 }
                 else await DisplayAlert("Login", "Login or Password Failed", "OK");
 
             }
             else await DisplayAlert("Login", "Login Not Correct, empty username or password.", "OK");
+        }
+
+        async void ToolbarItem_Clicked_SignUp(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignUpPage());
         }
     }
 }

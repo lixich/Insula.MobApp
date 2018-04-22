@@ -9,6 +9,12 @@ namespace Insula.MobApp.Models
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Birthday { get; set; }
+        public string Weight { get; set; }
+        public string Growth { get; set; }
+        public string Insulin { get; set; }
+        public double NormalGlucose { get; set; }
+
         public User() { }
         public User(string Username, string Password)
         {

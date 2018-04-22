@@ -1,12 +1,14 @@
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\bin\Debug\netstandard2.0\Insula.MobApp.deps.json
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\bin\Debug\netstandard2.0\Insula.MobApp.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\bin\Debug\netstandard2.0\Insula.MobApp.pdb
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.csprojResolveAssemblyReference.cache
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.csproj.CoreCompileInputs.cache
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.App.xaml.g.cs
-C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.FirstPage.xaml.g.cs
-C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.Views.LoginPage.xaml.g.cs
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.Views.DiaryItemPage.xaml.g.cs
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.Views.DiaryListPage.xaml.g.cs
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.Views.SignInPage.xaml.g.cs
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.Views.SignUpPage.xaml.g.cs
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.AssemblyInfoInputs.cache
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.AssemblyInfo.cs
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.pdb
-C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.csprojResolveAssemblyReference.cache
