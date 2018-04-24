@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Insula.MobApp.Views.DiaryListPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Clicked="ToolbarItem_Clicked_Add">
+        <ToolbarItem Text="Add entry" Clicked="ToolbarItem_Clicked_Add" Order="Primary">
             <!--<ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="Android" Value="plus" />
@@ -11,7 +11,9 @@
                 </OnPlatform>
             </ToolbarItem.Icon>-->
         </ToolbarItem>
-        <ToolbarItem Text="Logout" Clicked="ToolbarItem_Clicked_Logout" />
+        <ToolbarItem Text="Calculator" Clicked="ToolbarItem_Clicked_Calculator" Order="Secondary"/>
+        <ToolbarItem Text="Settings" Clicked="ToolbarItem_Clicked_Settings" Order="Secondary"/>
+        <ToolbarItem Text="Logout" Clicked="ToolbarItem_Clicked_Logout" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView x:Name="ListView_DiaryList" ItemSelected="Item_Selected">

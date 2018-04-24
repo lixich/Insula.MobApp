@@ -21,9 +21,6 @@ C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debu
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\R.cs.flag
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\uploadflags.txt
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\res\drawable\logoiconsmall.png
-C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\res\drawable-hdpi\logoiconsmall.png
-C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\res\drawable-xhdpi\logoiconsmall.png
-C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\res\drawable-xxhdpi\logoiconsmall.png
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\res\drawable-hdpi\logoicon.png
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\res\drawable-xhdpi\logoicon.png
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\res\drawable-xxhdpi\logoicon.png
@@ -99,6 +96,7 @@ C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debu
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Xml.Linq.pdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\android\assets\System.Xml.pdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\bin\Debug\Insula.MobApp.Android.dll
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\Insula.MobApp.pdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\Insula.MobApp.Android.dll.mdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\Xamarin.Forms.Core.dll.mdb

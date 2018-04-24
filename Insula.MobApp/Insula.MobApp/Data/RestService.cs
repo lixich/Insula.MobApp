@@ -73,7 +73,7 @@ namespace Insula.MobApp.Data
             try
             {
                 var response = await client.PostAsync(weburl, new StringContent(jsonstring, Encoding.UTF8, ContentType));
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (response.StatusCode == System.Net.HttpStatusCode.OK || response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     var jsonResult = response.Content.ReadAsStringAsync().Result;
                     try

@@ -41,8 +41,20 @@ namespace Insula.MobApp.Views
         {
             App.RestService.Logout();
             Navigation.InsertPageBefore(new SignInPage(), this);
-            //Navigation.PushAsync(new SignInPage());
             Navigation.PopAsync();
+        }
+
+        void ToolbarItem_Clicked_Settings(object sender, EventArgs e)
+        {
+            var SignUpPage = new SignUpPage();
+            SignUpPage.BindingContext = App.User;
+            Navigation.PushAsync(SignUpPage);
+        }
+
+        void ToolbarItem_Clicked_Calculator(object sender, EventArgs e)
+        {
+            DisplayAlert("Calculator", "Dose insulin calculator", "OK");
+            //Navigation.PushAsync(new CalculatorPage());
         }
 
         void Item_Selected(object sender, SelectedItemChangedEventArgs e)

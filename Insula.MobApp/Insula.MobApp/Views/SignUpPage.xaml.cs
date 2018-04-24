@@ -26,28 +26,35 @@ namespace Insula.MobApp.Views
             Label_Password.TextColor = Constants.TextColor;
 
             //-----Delegates
-            Entry_Username.Completed += (s, e) => Entry_Password.Focus();
-            Entry_Password.Completed += (s, e) => Button_Clicked_SignUp(s, e);
+            //Entry_Username.Completed += (s, e) => Entry_Password.Focus();
+            //Entry_Password.Completed += (s, e) => Button_Clicked_Save(s, e);
         }
 
-        async void Button_Clicked_SignUp(object sender, EventArgs e)
+        async void Button_Clicked_Save(object sender, EventArgs e)
         {
-            var user = new User()
+            var user = (User)BindingContext;
+            if (user.Id == 0)
             {
-                Username = Entry_Username.Text,
-                Password = Entry_Password.Text,
-            };
-
-            user = await App.RestService.PostResponse<User>(Constants.UserUrl, JsonConvert.SerializeObject(user));
-            if (user != null)
-            {
-                await DisplayAlert("Sign up", "Sign up success", "OK");
-                Navigation.InsertPageBefore(new DiaryListPage(), Navigation.NavigationStack.First());
-                await Navigation.PopToRootAsync();
+                user = await App.RestService.PostResponse<User>(Constants.UserUrl, JsonConvert.SerializeObject(user));
+                if (user != null)
+                {
+                    App.User = user;
+                    await DisplayAlert("Sign up", "Sign up success", "OK");
+                    Navigation.InsertPageBefore(new DiaryListPage(), Navigation.NavigationStack.First());
+                    await Navigation.PopToRootAsync();
+                }
+                else
+                {
+                    Label_Message.Text = "Sign up failed";
+                }
             }
             else
             {
-                Label_Message.Text = "Sign up failed";
+                user = await App.RestService.PutResponse<User>(user.uri, JsonConvert.SerializeObject(user));
+                await DisplayAlert("Settings", "Save success", "OK");
+                //Navigation.InsertPageBefore(new DiaryListPage(), Navigation.NavigationStack.First());
+                //await Navigation.PopToRootAsync();
+                await Navigation.PopAsync();
             }
         }
     }

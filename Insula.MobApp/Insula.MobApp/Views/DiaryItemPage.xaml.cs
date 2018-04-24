@@ -39,7 +39,7 @@ namespace Insula.MobApp.Views
             }
             else
             {
-                diaryItem = await App.RestService.PutResponse<DiaryItem>(diaryItem.Uri, JsonConvert.SerializeObject(diaryItem));
+                diaryItem = await App.RestService.PutResponse<DiaryItem>(diaryItem.uri, JsonConvert.SerializeObject(diaryItem));
             }
             await Navigation.PopAsync();
         }
@@ -47,7 +47,7 @@ namespace Insula.MobApp.Views
         async void Button_Clicked_Delete(object sender, EventArgs e)
         {
             var diaryItem = (DiaryItem)BindingContext;
-            var result = await App.RestService.DeleteResponse(diaryItem.Uri);
+            var result = await App.RestService.DeleteResponse(diaryItem.uri);
             await Navigation.PopAsync();
         }
 

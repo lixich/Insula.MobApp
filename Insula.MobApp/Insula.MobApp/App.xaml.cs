@@ -24,7 +24,14 @@ namespace Insula.MobApp
         public App ()
 		{
 			InitializeComponent();
-            MainPage = new NavigationPage(new SignInPage()) { BarBackgroundColor = Constants.MainTextColor };
+            if (App.User != null && App.User.Id != 0)
+            {
+                MainPage = new NavigationPage(new DiaryListPage()) { BarBackgroundColor = Constants.MainTextColor };
+            }
+            else
+            {
+                MainPage = new NavigationPage(new SignInPage()) { BarBackgroundColor = Constants.MainTextColor };
+            }
         }
 
 		protected override void OnStart ()

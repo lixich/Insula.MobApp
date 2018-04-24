@@ -34,25 +34,37 @@ namespace Insula.MobApp.Views
 
         async void Button_Clicked_SignIn(object sender, EventArgs e)
         {
-            User user = new User(Entry_Username.Text, Entry_Password.Text);
-            if (user.CheckInformation())
+            ActivitySpinner.IsVisible = true;
+            var user = new User(Entry_Username.Text, Entry_Password.Text);
+            if (user.CheckSignIn())
             {
                 user = await App.RestService.Authentication(user);
                 if (user != null)
                 {
                     //await DisplayAlert("Login", "Login Success.", "OK");
                     Navigation.InsertPageBefore(new DiaryListPage(), this);
+                    ActivitySpinner.IsVisible = false;
                     await Navigation.PopAsync();
                 }
-                else await DisplayAlert("Login", "Login or Password Failed", "OK");
+                else
+                {
+                    ActivitySpinner.IsVisible = false;
+                    await DisplayAlert("Login", "Login or Password Failed", "OK");
+                }
 
             }
-            else await DisplayAlert("Login", "Login Not Correct, empty username or password.", "OK");
+            else
+            {
+                ActivitySpinner.IsVisible = false;
+                await DisplayAlert("Login", "Login Not Correct, empty username or password.", "OK");
+            }
         }
 
         async void ToolbarItem_Clicked_SignUp(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SignUpPage());
+            var SignUpPage = new SignUpPage();
+            SignUpPage.BindingContext = new User();
+            await Navigation.PushAsync(SignUpPage);
         }
     }
 }

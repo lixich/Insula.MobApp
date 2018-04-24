@@ -11,7 +11,6 @@
                 <Label x:Name="Label_Internet" HorizontalOptions="Center" TextColor="White" BackgroundColor="Red"/>
                 <Image x:Name="LogoIcon" Source="LogoIcon.png" Margin="0,0,0,0"/>
             </StackLayout>
-
             <StackLayout x:Name="LoginEntryStack" VerticalOptions="StartAndExpand">
                 <StackLayout.Padding>
                     <OnIdiom x:TypeArguments="Thickness">
@@ -20,6 +19,9 @@
                     </OnIdiom>
                 </StackLayout.Padding>
                 <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="True"/>
+                <!--<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="1, 1, 1, 1" BackgroundColor="White" Opacity="0.5"   AbsoluteLayout.LayoutFlags="All" x:Name="AbsoluteLayoutFrame" IsVisible="false">
+                    <ActivityIndicator x:Name="ActivitySpinner" IsVisible="false" IsRunning="true" HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="1, 1, 1, 1" Color="Red" AbsoluteLayout.LayoutFlags="All"/>
+                </AbsoluteLayout>-->
                 <Label x:Name="Label_Username" Text="Username" />
                 <Entry x:Name="Entry_Username" Placeholder="Username"/>
                 <Label x:Name="Label_Password" Text="Password" />
