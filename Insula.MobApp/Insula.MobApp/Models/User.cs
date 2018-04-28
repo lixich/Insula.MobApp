@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Insula.MobApp.Models
 {
-    public class User
+    public class User : ICloneable
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -33,29 +33,9 @@ namespace Insula.MobApp.Models
             this.Insulin = Insulin;
             this.NormalGlucose = NormalGlucose;
         }
-
-        public bool CheckSignIn()
+        public object Clone()
         {
-            if (this.Username != null && this.Password != null && !this.Username.Equals("") && !this.Password.Equals(""))
-                return true;
-            else
-                return false;
-        }
-        public bool CheckSignUp()
-        {
-            if (this.Username != null 
-                && this.Password != null
-                && this.Password != null
-                && this.Birthday != null
-                && this.Insulin != null
-                && !this.Username.Equals("") 
-                && !this.Password.Equals("")
-                && !this.Birthday.Equals("")
-                && !this.Insulin.Equals("")
-                )
-                return true;
-            else
-                return false;
+            return this.MemberwiseClone();
         }
     }
 }

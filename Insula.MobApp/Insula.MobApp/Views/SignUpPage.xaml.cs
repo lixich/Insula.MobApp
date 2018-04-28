@@ -7,17 +7,21 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Insula.MobApp.ViewModel;
 
 namespace Insula.MobApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SignUpPage : ContentPage
 	{
-		public SignUpPage ()
+        public SignUpViewModel SignUpViewModel { get; private set; }
+        public SignUpPage ()
 		{
 			InitializeComponent ();
             Init();
-		}
+            SignUpViewModel = new SignUpViewModel(this) { Navigation = this.Navigation };
+            this.BindingContext = SignUpViewModel;
+        }
 
         void Init()
         {
@@ -26,36 +30,18 @@ namespace Insula.MobApp.Views
             Label_Password.TextColor = Constants.TextColor;
 
             //-----Delegates
-            //Entry_Username.Completed += (s, e) => Entry_Password.Focus();
-            //Entry_Password.Completed += (s, e) => Button_Clicked_Save(s, e);
+            Entry_Username.Completed += (s, e) => Entry_Password.Focus();
+            Entry_Password.Completed += (s, e) => Entry_Birthday.Focus();
+            Entry_Birthday.Completed += (s, e) => Entry_Weight.Focus();
+            Entry_Weight.Completed += (s, e) => Entry_Growth.Focus();
+            Entry_Growth.Completed += (s, e) => Entry_Insulin.Focus();
+            Entry_Insulin.Completed += (s, e) => Entry_NormalGlucose.Focus();
+            Entry_NormalGlucose.Completed += (s, e) => Button_Clicked_Save(s, e);
         }
 
-        async void Button_Clicked_Save(object sender, EventArgs e)
+        void Button_Clicked_Save(object sender, EventArgs e)
         {
-            var user = (User)BindingContext;
-            if (user.Id == 0)
-            {
-                user = await App.RestService.PostResponse<User>(Constants.UserUrl, JsonConvert.SerializeObject(user));
-                if (user != null)
-                {
-                    App.User = user;
-                    await DisplayAlert("Sign up", "Sign up success", "OK");
-                    Navigation.InsertPageBefore(new DiaryListPage(), Navigation.NavigationStack.First());
-                    await Navigation.PopToRootAsync();
-                }
-                else
-                {
-                    Label_Message.Text = "Sign up failed";
-                }
-            }
-            else
-            {
-                user = await App.RestService.PutResponse<User>(user.uri, JsonConvert.SerializeObject(user));
-                await DisplayAlert("Settings", "Save success", "OK");
-                //Navigation.InsertPageBefore(new DiaryListPage(), Navigation.NavigationStack.First());
-                //await Navigation.PopToRootAsync();
-                await Navigation.PopAsync();
-            }
+            SignUpViewModel.Save();
         }
     }
 }

@@ -3,31 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Insula.MobApp.Views.SignUpPage">
     <ContentPage.Content>
-        <StackLayout x:Name="MasterLayout">
-            <StackLayout x:Name="LoginEntryStack" VerticalOptions="StartAndExpand">
-                <StackLayout.Padding>
-                    <OnIdiom x:TypeArguments="Thickness">
-                        <OnIdiom.Phone>40,10,40,0</OnIdiom.Phone>
-                        <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
-                    </OnIdiom>
-                </StackLayout.Padding>
-                <Label x:Name="Label_Username" Text="Username" />
-                <Entry x:Name="Entry_Username" Text="{Binding Path=Username}" Placeholder="Username" />
-                <Label x:Name="Label_Password" Text="Password" />
-                <Entry x:Name="Entry_Password" Text="{Binding Path=Password}" IsPassword="true" Placeholder="Password"  />
-                <Label x:Name="Label_Birthday" Text="Birthday" />
-                <Entry x:Name="Entry_Birthday" Text="{Binding Path=Birthday}" Placeholder="Birthday" />
-                <Label x:Name="Label_Weight" Text="Weight" />
-                <Entry x:Name="Entry_Weight" Text="{Binding Path=Weight}" Placeholder="Weight" Keyboard="Numeric"/>
-                <Label x:Name="Label_Growth" Text="Growth" />
-                <Entry x:Name="Entry_Growth" Text="{Binding Path=Growth}" Placeholder="Growth" Keyboard="Numeric" />
-                <Label x:Name="Label_Insulin" Text="Insulin name" />
-                <Entry x:Name="Entry_Insulin" Text="{Binding Path=Insulin}" Placeholder="Insulin" />
-                <Label x:Name="Label_NormalGlucose" Text="NormalGlucose" />
-                <Entry x:Name="Entry_NormalGlucose" Text="{Binding Path=NormalGlucose}" Placeholder="NormalGlucose" Keyboard="Numeric" />
-                <Button Text="Save" Clicked="Button_Clicked_Save" />
-                <Label x:Name="Label_Message" />
+        <ScrollView>
+            <StackLayout x:Name="MasterLayout">
+                <StackLayout x:Name="LoginEntryStack" VerticalOptions="StartAndExpand">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness">
+                            <OnIdiom.Phone>40,10,40,0</OnIdiom.Phone>
+                            <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+                        </OnIdiom>
+                    </StackLayout.Padding>
+                    <Label x:Name="Label_Username" Text="Username" />
+                    <Entry x:Name="Entry_Username" Text="{Binding Path=Username}" Placeholder="Username" />
+                    <Label x:Name="Label_Password" Text="Password" />
+                    <Entry x:Name="Entry_Password" Text="{Binding Path=Password}" IsPassword="true" Placeholder="Password"  />
+                    <Label x:Name="Label_Birthday" Text="Birthday" />
+                    <Entry x:Name="Entry_Birthday" Text="{Binding Path=Birthday}" Placeholder="Birthday" />
+                    <Label x:Name="Label_Weight" Text="Weight" />
+                    <Entry x:Name="Entry_Weight" Text="{Binding Path=Weight}" Placeholder="Weight" Keyboard="Numeric"/>
+                    <Label x:Name="Label_Growth" Text="Growth" />
+                    <Entry x:Name="Entry_Growth" Text="{Binding Path=Growth}" Placeholder="Growth" Keyboard="Numeric" />
+                    <Label x:Name="Label_Insulin" Text="Insulin name" />
+                    <Entry x:Name="Entry_Insulin" Text="{Binding Path=Insulin}" Placeholder="Insulin" />
+                    <Label x:Name="Label_NormalGlucose" Text="NormalGlucose" />
+                    <Entry x:Name="Entry_NormalGlucose" Text="{Binding Path=NormalGlucose}" Placeholder="NormalGlucose" Keyboard="Numeric" />
+                    <Button Text="Save" Clicked="Button_Clicked_Save" />
+                    <Label x:Name="Label_Message" Text="{Binding Path=Label_Message}"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

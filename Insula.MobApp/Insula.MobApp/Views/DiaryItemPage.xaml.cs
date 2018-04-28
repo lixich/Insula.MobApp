@@ -1,11 +1,11 @@
 ﻿using Insula.MobApp.Models;
+using Insula.MobApp.ViewModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,11 +14,23 @@ namespace Insula.MobApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class DiaryItemPage : ContentPage
 	{
-		public DiaryItemPage ()
+        public DiaryItemViewModel DiaryItemViewModel { get; private set; }
+        public DiaryItemPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
             Init();
+            DiaryItemViewModel = new DiaryItemViewModel(this) { Navigation = this.Navigation };
+            this.BindingContext = DiaryItemViewModel;
         }
+
+        public DiaryItemPage(DiaryItemViewModel diaryItemViewModel)
+        {
+            InitializeComponent();
+            Init();
+            DiaryItemViewModel = diaryItemViewModel;
+            this.BindingContext = DiaryItemViewModel;
+        }
+
 
         void Init()
         {
@@ -29,31 +41,15 @@ namespace Insula.MobApp.Views
             Label_GlucoseBefore.TextColor = Constants.TextColor;
             Label_GlucoseAfter.TextColor = Constants.TextColor;
         }
-        async void Button_Clicked_Save(object sender, EventArgs e)
+
+        void Button_Clicked_Save(object sender, EventArgs e)
         {
-            var diaryItem = (DiaryItem)BindingContext;
-            if (diaryItem.Id == 0)
-            {
-                diaryItem.UserId = App.User.Id;
-                diaryItem = await App.RestService.PostResponse<DiaryItem>(Constants.DiaryUrl, JsonConvert.SerializeObject(diaryItem));
-            }
-            else
-            {
-                diaryItem = await App.RestService.PutResponse<DiaryItem>(diaryItem.uri, JsonConvert.SerializeObject(diaryItem));
-            }
-            await Navigation.PopAsync();
+            DiaryItemViewModel.Save();
         }
 
-        async void Button_Clicked_Delete(object sender, EventArgs e)
+        void Button_Clicked_Delete(object sender, EventArgs e)
         {
-            var diaryItem = (DiaryItem)BindingContext;
-            var result = await App.RestService.DeleteResponse(diaryItem.uri);
-            await Navigation.PopAsync();
-        }
-
-        void Button_Clicked_Cancel(object sender, EventArgs e)
-        {
-            Navigation.PopAsync();
+            DiaryItemViewModel.Delete();
         }
     }
 }

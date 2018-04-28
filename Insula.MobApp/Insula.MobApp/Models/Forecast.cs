@@ -8,7 +8,6 @@ namespace Insula.MobApp.Models
     public class Forecast
     {
         public int Value { get; set; }
-
         public string Name { get; set; }
 
     }

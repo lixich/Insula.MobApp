@@ -1,4 +1,5 @@
 ﻿using Insula.MobApp.Models;
+using Insula.MobApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,55 +14,51 @@ namespace Insula.MobApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class DiaryListPage : ContentPage
 	{
-		public DiaryListPage ()
+        public DiaryListViewModel DiaryListViewModel { get; private set; }
+        public DiaryListPage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
             Init();
-		}
+            DiaryListViewModel = new DiaryListViewModel(this) { Navigation = this.Navigation };
+            this.BindingContext = DiaryListViewModel;
+        }
 
         void Init()
         {
             BackgroundColor = Constants.BackgroundColor;
         }
-
-        protected async override void OnAppearing()
+        /*
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            ListView_DiaryList.ItemsSource = await App.RestService.GetResponse<List<DiaryItem>>(Constants.DiaryUrl);
-        }
-        
+            DiaryListViewModel.LoadData();
+            //this.BindingContext = DiaryListViewModel;
+            //ListView_DiaryList.ItemsSource = DiaryListViewModel.DiaryList;  // = await App.RestService.GetResponse<List<DiaryItem>>(Constants.DiaryUrl);
+        }*/
+
         void ToolbarItem_Clicked_Add(object sender, EventArgs e)
         {
-            var diaryItemPage = new DiaryItemPage();
-            diaryItemPage.BindingContext = new DiaryItem();
-            Navigation.PushAsync(diaryItemPage);
+            DiaryListViewModel.Add();
         }
 
         void ToolbarItem_Clicked_Logout(object sender, EventArgs e)
         {
-            App.RestService.Logout();
-            Navigation.InsertPageBefore(new SignInPage(), this);
-            Navigation.PopAsync();
+            DiaryListViewModel.Logout();
         }
 
         void ToolbarItem_Clicked_Settings(object sender, EventArgs e)
         {
-            var SignUpPage = new SignUpPage();
-            SignUpPage.BindingContext = App.User;
-            Navigation.PushAsync(SignUpPage);
+            DiaryListViewModel.Settings();
         }
 
         void ToolbarItem_Clicked_Calculator(object sender, EventArgs e)
         {
-            DisplayAlert("Calculator", "Dose insulin calculator", "OK");
-            //Navigation.PushAsync(new CalculatorPage());
+            DiaryListViewModel.Calculator();
         }
 
         void Item_Selected(object sender, SelectedItemChangedEventArgs e)
         {
-            var diaryItemPage = new DiaryItemPage();
-            diaryItemPage.BindingContext = e.SelectedItem as DiaryItem;
-            Navigation.PushAsync(diaryItemPage);
+            DiaryListViewModel.Selected(sender, e);
         }
     }
 }

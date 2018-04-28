@@ -18,14 +18,14 @@
                         <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
                     </OnIdiom>
                 </StackLayout.Padding>
-                <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="True"/>
+                <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}" />
                 <!--<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="1, 1, 1, 1" BackgroundColor="White" Opacity="0.5"   AbsoluteLayout.LayoutFlags="All" x:Name="AbsoluteLayoutFrame" IsVisible="false">
                     <ActivityIndicator x:Name="ActivitySpinner" IsVisible="false" IsRunning="true" HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="1, 1, 1, 1" Color="Red" AbsoluteLayout.LayoutFlags="All"/>
                 </AbsoluteLayout>-->
                 <Label x:Name="Label_Username" Text="Username" />
-                <Entry x:Name="Entry_Username" Placeholder="Username"/>
+                <Entry x:Name="Entry_Username" Text="{Binding Username}" Placeholder="Username"/>
                 <Label x:Name="Label_Password" Text="Password" />
-                <Entry x:Name="Entry_Password" Placeholder="Password" IsPassword="true"/>
+                <Entry x:Name="Entry_Password" Text="{Binding Password}" Placeholder="Password" IsPassword="true"/>
                 <Button x:Name="Button_SignIn" Text="Sign in" Clicked="Button_Clicked_SignIn"/>
             </StackLayout>
         </StackLayout>

@@ -16,7 +16,8 @@
         <ToolbarItem Text="Logout" Clicked="ToolbarItem_Clicked_Logout" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="ListView_DiaryList" ItemSelected="Item_Selected">
+        <!--<ListView x:Name="ListView_DiaryList" ItemSelected="Item_Selected">-->
+        <ListView ItemsSource="{Binding DiaryList}" SelectedItem="{Binding SelectedDiaryItem , Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

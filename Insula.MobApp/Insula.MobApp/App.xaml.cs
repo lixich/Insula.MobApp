@@ -49,6 +49,11 @@ namespace Insula.MobApp
 			// Handle when your app resumes
 		}
 
+        public static bool IsAuthorized()
+        {
+            return App.User.Id != 0;
+        }
+
         public static RestService RestService
         {
             get

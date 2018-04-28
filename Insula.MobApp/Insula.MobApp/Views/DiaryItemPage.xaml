@@ -3,28 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Insula.MobApp.Views.DiaryItemPage">
     <ContentPage.Content>
-        <StackLayout x:Name="MasterLayout">
-            <StackLayout VerticalOptions="StartAndExpand">
-                <StackLayout.Padding>
-                    <OnIdiom x:TypeArguments="Thickness">
-                        <OnIdiom.Phone>40,10,40,0</OnIdiom.Phone>
-                        <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
-                    </OnIdiom>
-                </StackLayout.Padding>
-                <Label x:Name="Label_Time" Text="Time" />
-                <Entry x:Name="Entry_Time" Text="{Binding Path=Time}" Placeholder="Time" />
-                <Label x:Name="Label_Insulin" Text="Insulin" />
-                <Entry x:Name="Entry_Insulin" Text="{Binding Path=Insulin}" Placeholder="Insulin" />
-                <Label x:Name="Label_Carbo" Text="Carbo" />
-                <Entry x:Name="Entry_Carbo" Text="{Binding Path=Carbo}" Placeholder="Carbo" />
-                <Label x:Name="Label_GlucoseBefore" Text="GlucoseBefore" />
-                <Entry x:Name="Entry_GlucoseBefore" Text="{Binding Path=GlucoseBefore}" Placeholder="GlucoseBefore" />
-                <Label x:Name="Label_GlucoseAfter" Text="GlucoseAfter" />
-                <Entry x:Name="Entry_GlucoseAfter" Text="{Binding Path=GlucoseAfter}" Placeholder="GlucoseAfter" />
-                <Button Text="Save" Clicked="Button_Clicked_Save" />
-                <Button Text="Delete" Clicked="Button_Clicked_Delete" />
-                <!--<Button Text="Cancel" Clicked="Button_Clicked_Cancel" />-->
+        <ScrollView>
+            <StackLayout x:Name="MasterLayout">
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness">
+                            <OnIdiom.Phone>40,10,40,0</OnIdiom.Phone>
+                            <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+                        </OnIdiom>
+                    </StackLayout.Padding>
+                    <Label x:Name="Label_Time" Text="Time" />
+                    <Entry x:Name="Entry_Time" Text="{Binding Path=Time}" Placeholder="Time" />
+                    <Label x:Name="Label_Insulin" Text="Insulin" />
+                    <Entry x:Name="Entry_Insulin" Text="{Binding Path=Insulin}" Placeholder="Insulin" />
+                    <Label x:Name="Label_Carbo" Text="Carbo" />
+                    <Entry x:Name="Entry_Carbo" Text="{Binding Path=Carbo}" Placeholder="Carbo" />
+                    <Label x:Name="Label_GlucoseBefore" Text="GlucoseBefore" />
+                    <Entry x:Name="Entry_GlucoseBefore" Text="{Binding Path=GlucoseBefore}" Placeholder="GlucoseBefore" />
+                    <Label x:Name="Label_GlucoseAfter" Text="GlucoseAfter" />
+                    <Entry x:Name="Entry_GlucoseAfter" Text="{Binding Path=GlucoseAfter}" Placeholder="GlucoseAfter" />
+                    <Button Text="Save" Clicked="Button_Clicked_Save" />
+                    <Button Text="Delete" Clicked="Button_Clicked_Delete" />
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

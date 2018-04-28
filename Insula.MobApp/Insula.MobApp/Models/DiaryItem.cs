@@ -5,25 +5,19 @@ using System.Text;
 
 namespace Insula.MobApp.Models
 {
-    public class DiaryItem
+    public class DiaryItem : ICloneable
     {
         public int Id { get; set; }
-
         public double Insulin { get; set; }
-
         public string Time { get; set; }
-
         public double Carbo { get; set; }
-
         public double GlucoseBefore { get; set; }
-
         public double GlucoseAfter { get; set; }
-
         public int UserId { get; set; }
-
         public string uri { get; set; }
-
-        public string DisplayName { get { return $"{Time} Carbo: {Carbo} Dose: {Insulin}"; } }
-
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }
