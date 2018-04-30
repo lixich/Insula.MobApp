@@ -12,3 +12,4 @@ C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netsta
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.dll
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.pdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.csprojResolveAssemblyReference.cache
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp\obj\Debug\netstandard2.0\Insula.MobApp.Views.ForecastPage.xaml.g.cs

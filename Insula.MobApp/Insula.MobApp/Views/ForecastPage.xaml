@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Insula.MobApp.Views.ForecastPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="MasterLayout">
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness">
+                            <OnIdiom.Phone>40,10,40,0</OnIdiom.Phone>
+                            <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+                        </OnIdiom>
+                    </StackLayout.Padding>
+                    <Label x:Name="Label_Time" Text="Time"/>
+                    <Entry x:Name="Entry_Time" Text="{Binding Path=Time}" Placeholder="Time" />
+                    <Label x:Name="Label_Carbo" Text="Carbo" />
+                    <Entry x:Name="Entry_Carbo" Text="{Binding Path=Carbo}" Placeholder="Carbo" />
+                    <Label x:Name="Label_GlucoseBefore" Text="GlucoseBefore" />
+                    <Entry x:Name="Entry_GlucoseBefore" Text="{Binding Path=GlucoseBefore}" Placeholder="GlucoseBefore" />
+                    <Label x:Name="Label_Forecast" Text="Forecast" />
+                    <StackLayout Orientation="Horizontal">
+                        <Picker ItemsSource="{Binding ForecastList}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedForecast}" HorizontalOptions="FillAndExpand"></Picker>
+                        <Button Text="Forecast" Clicked="Button_Clicked_Forecast" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}" />
+                    <Label x:Name="Label_Insulin" Text="Insulin" />
+                    <Entry x:Name="Entry_Insulin" Text="{Binding Path=Insulin}" Placeholder="Insulin" />
+                    <Button Text="Save" Clicked="Button_Clicked_Save" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

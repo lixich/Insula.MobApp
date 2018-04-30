@@ -10,5 +10,13 @@ namespace Insula.MobApp.Models
         public int Value { get; set; }
         public string Name { get; set; }
 
+        public string DisplayName
+        {
+            get
+            {
+                return Value + " - " + Name;
+            }
+        }
+
     }
 }

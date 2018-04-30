@@ -153,6 +153,17 @@ namespace Insula.MobApp.ViewModel
         public async void Delete()
         {
             var result = await App.RestService.DeleteResponse(DiaryItem.uri);
+            if (result)
+            {
+                var diaryItemToRemove = this;
+                for (int i = 0; i < DiaryListViewModel.DiaryList.Count; i++)
+                {
+                    var diaryItem = DiaryListViewModel.DiaryList[i];
+                    if (diaryItem.Id == DiaryItem.Id)
+                        diaryItemToRemove = diaryItem;
+                }
+                DiaryListViewModel.DiaryList.Remove(diaryItemToRemove);
+            }
             await Navigation.PopAsync();
         }
 

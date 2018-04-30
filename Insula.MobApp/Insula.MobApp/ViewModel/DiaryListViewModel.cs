@@ -52,9 +52,6 @@ namespace Insula.MobApp.ViewModel
             {
                 if (_SelectedDiaryItem != value)
                 {
-                    //DiaryItemViewModel tempDiaryItem = value;
-                    //tempDiaryItem.DiaryItem = (DiaryItem) value.DiaryItem.Clone();
-                    //DiaryItemViewModel tempDiaryItem = new DiaryItemViewModel() { DiaryItem = (DiaryItem)value.DiaryItem.Clone() };
                     DiaryItemViewModel tempDiaryItem = (DiaryItemViewModel) value.Clone();
                     _SelectedDiaryItem = null;
                     OnPropertyChanged("SelectedDiaryItem");
@@ -65,17 +62,12 @@ namespace Insula.MobApp.ViewModel
 
         private void CreateDiaryItem()
         {
-            Navigation.PushAsync(new DiaryItemPage(new DiaryItemViewModel(Page) { DiaryListViewModel = this }));
+            Navigation.PushAsync(new DiaryItemPage(new DiaryItemViewModel() { DiaryListViewModel = this, Page = this.Page }));
         }
 
         public void Add()
         {
             Navigation.PushAsync(new DiaryItemPage());
-            /*
-            var diaryItemPage = new DiaryItemPage();
-            diaryItemPage.BindingContext = new DiaryItem();
-            Navigation.PushAsync(diaryItemPage);
-            */
         }
 
         public void Logout()
@@ -92,8 +84,7 @@ namespace Insula.MobApp.ViewModel
 
         public void Calculator()
         {
-            Page.DisplayAlert("Calculator", "Dose insulin calculator", "OK");
-            //Navigation.PushAsync(new CalculatorPage());
+            Navigation.PushAsync(new ForecastPage( new ForecastViewModel() { DiaryListViewModel = this, Navigation = this.Navigation } ));
         }
 
         public void Selected(object sender, SelectedItemChangedEventArgs e)
