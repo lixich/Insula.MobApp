@@ -36,6 +36,7 @@ namespace Insula.MobApp.Views
         {
             BackgroundColor = Constants.BackgroundColor;
             Label_Time.TextColor = Constants.TextColor;
+            Label_Date.TextColor = Constants.TextColor;
             Label_Insulin.TextColor = Constants.TextColor;
             Label_Carbo.TextColor = Constants.TextColor;
             Label_GlucoseBefore.TextColor = Constants.TextColor;

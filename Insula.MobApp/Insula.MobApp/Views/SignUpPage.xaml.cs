@@ -32,7 +32,7 @@ namespace Insula.MobApp.Views
             //-----Delegates
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
             Entry_Password.Completed += (s, e) => Entry_Birthday.Focus();
-            Entry_Birthday.Completed += (s, e) => Entry_Weight.Focus();
+            //Entry_Birthday.Completed += (s, e) => Entry_Weight.Focus();
             Entry_Weight.Completed += (s, e) => Entry_Growth.Focus();
             Entry_Growth.Completed += (s, e) => Entry_Insulin.Focus();
             Entry_Insulin.Completed += (s, e) => Entry_NormalGlucose.Focus();

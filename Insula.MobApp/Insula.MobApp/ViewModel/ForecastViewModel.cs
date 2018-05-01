@@ -19,13 +19,13 @@ namespace Insula.MobApp.ViewModel
 
         public ForecastViewModel()
         {
-            DiaryItem = new DiaryItem() { Time = DateTime.Now.ToString() };
+            DiaryItem = new DiaryItem() { Time = DateTime.Now };
         }
 
         public ForecastViewModel(Page page)
         {
             Page = page;
-            DiaryItem = new DiaryItem() { Time = DateTime.Now.ToString() };
+            DiaryItem = new DiaryItem() { Time = DateTime.Now };
         }
 
         DiaryListViewModel _DiaryListViewModel;
@@ -63,15 +63,37 @@ namespace Insula.MobApp.ViewModel
                 { DiaryItem.Insulin = StringConvertToDouble(DiaryItem.Insulin, value, "Insulin"); }
             }
         }
-        public string Time
+
+        public DateTime Date
         {
-            get { return DiaryItem.Time; }
+            get { return DiaryItem.Time.Date; }
             set
             {
-                if (DiaryItem.Time != value)
-                { DiaryItem.Time = value; OnPropertyChanged("Time"); }
+                if (DiaryItem.Time.Date != value)
+                {
+                    var dateTime = new DateTime(value.Year, value.Month, value.Day);
+                    dateTime = dateTime.Add(Time);
+                    DiaryItem.Time = dateTime;
+                    OnPropertyChanged("Date");
+                }
             }
         }
+
+        public TimeSpan Time
+        {
+            get { return DiaryItem.Time.TimeOfDay; }
+            set
+            {
+                if (DiaryItem.Time.TimeOfDay != value)
+                {
+                    var dateTime = new DateTime(Date.Year, Date.Month, Date.Day);
+                    dateTime = dateTime.Add(value);
+                    DiaryItem.Time = dateTime;
+                    OnPropertyChanged("Time");
+                }
+            }
+        }
+
         public string Carbo
         {
             get { return DiaryItem.Carbo.ToString(); }
@@ -96,7 +118,7 @@ namespace Insula.MobApp.ViewModel
         {
             get
             {
-                return ((!string.IsNullOrEmpty(Time)) ||
+                return ((Time != null) ||
                         (DiaryItem.Insulin <= 0) ||
                         (DiaryItem.Carbo <= 0) ||
                         (DiaryItem.GlucoseBefore <= 0));

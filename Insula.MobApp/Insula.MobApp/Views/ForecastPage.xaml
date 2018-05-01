@@ -12,8 +12,10 @@
                             <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
                         </OnIdiom>
                     </StackLayout.Padding>
+                    <Label x:Name="Label_Date" Text="Date"/>
+                    <DatePicker x:Name="DatePicker_Date" Date="{Binding Path=Date}"/>
                     <Label x:Name="Label_Time" Text="Time"/>
-                    <Entry x:Name="Entry_Time" Text="{Binding Path=Time}" Placeholder="Time" />
+                    <TimePicker x:Name="TimePicker_Time" Time="{Binding Path=Time}"/>
                     <Label x:Name="Label_Carbo" Text="Carbo" />
                     <Entry x:Name="Entry_Carbo" Text="{Binding Path=Carbo}" Placeholder="Carbo" Keyboard="Numeric"/>
                     <Label x:Name="Label_GlucoseBefore" Text="GlucoseBefore" />

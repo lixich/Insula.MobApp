@@ -17,7 +17,7 @@
                     <Label x:Name="Label_Password" Text="Password" />
                     <Entry x:Name="Entry_Password" Text="{Binding Path=Password}" IsPassword="true" Placeholder="Password"  />
                     <Label x:Name="Label_Birthday" Text="Birthday" />
-                    <Entry x:Name="Entry_Birthday" Text="{Binding Path=Birthday}" Placeholder="Birthday" />
+                    <DatePicker x:Name="Entry_Birthday" Date="{Binding Path=Birthday}"/>
                     <Label x:Name="Label_Weight" Text="Weight" />
                     <Entry x:Name="Entry_Weight" Text="{Binding Path=Weight}" Placeholder="Weight" Keyboard="Numeric"/>
                     <Label x:Name="Label_Growth" Text="Growth" />

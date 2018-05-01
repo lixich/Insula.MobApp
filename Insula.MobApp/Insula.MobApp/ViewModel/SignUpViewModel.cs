@@ -51,7 +51,7 @@ namespace Insula.MobApp.ViewModel
                 { User.Password = value; OnPropertyChanged("Password"); }
             }
         }
-        public string Birthday
+        public DateTime Birthday
         {
             get { return User.Birthday; }
             set

@@ -73,15 +73,39 @@ namespace Insula.MobApp.ViewModel
                 { DiaryItem.Insulin = StringConvertToDouble(DiaryItem.Insulin, value, "Insulin");  OnPropertyChanged("DisplayName"); }
             }
         }
-        public string Time
+
+        public DateTime Date
         {
-            get { return DiaryItem.Time; }
+            get { return DiaryItem.Time.Date; }
             set
             {
-                if (DiaryItem.Time != value)
-                { DiaryItem.Time = value; OnPropertyChanged("Time"); OnPropertyChanged("DisplayName"); }
+                if (DiaryItem.Time.Date != value)
+                {
+                    var dateTime = new DateTime(value.Year, value.Month, value.Day);
+                    dateTime = dateTime.Add(Time);
+                    DiaryItem.Time = dateTime;
+                    OnPropertyChanged("Date");
+                    OnPropertyChanged("DisplayName");
+                }
             }
         }
+
+        public TimeSpan Time
+        {
+            get { return DiaryItem.Time.TimeOfDay; }
+            set
+            {
+                if (DiaryItem.Time.TimeOfDay != value)
+                {
+                    var dateTime = new DateTime(Date.Year, Date.Month, Date.Day);
+                    dateTime = dateTime.Add(value);
+                    DiaryItem.Time = dateTime;
+                    OnPropertyChanged("Time");
+                    OnPropertyChanged("DisplayName");
+                }
+            }
+        }
+
         public string Carbo
         {
             get { return DiaryItem.Carbo.ToString(); }
@@ -114,14 +138,14 @@ namespace Insula.MobApp.ViewModel
 
         public string DisplayName
         {
-            get { return $"{Time} Carbo: {Carbo} Dose: {Insulin}"; }
+            get { return $"{Date.Date.ToShortDateString()} {Time.ToString().Substring(0, 5)} Carbo: {Carbo} Dose: {Insulin}"; }
         }
 
         public bool IsValid
         {
             get
             {
-                return ((!string.IsNullOrEmpty(Time)) ||
+                return ((Time != null) ||
                     (DiaryItem.Insulin <= 0) ||
                     (DiaryItem.Carbo <= 0) ||
                     (DiaryItem.GlucoseBefore <= 0) ||

@@ -34,8 +34,6 @@ namespace Insula.MobApp.ViewModel
             foreach (var item in DiaryItems)
                 DiaryList.Add(new DiaryItemViewModel(Page, item) { DiaryListViewModel = this, Navigation = this.Navigation });
         }
-        //public ObservableCollection<DiaryItem> DiaryItems { get; set; }
-
 
         private ObservableCollection<DiaryItemViewModel> _DiaryList;
         public ObservableCollection<DiaryItemViewModel> DiaryList
@@ -90,11 +88,6 @@ namespace Insula.MobApp.ViewModel
         public void Selected(object sender, SelectedItemChangedEventArgs e)
         {
             Navigation.PushAsync(new DiaryItemPage(SelectedDiaryItem));
-            /*
-            var diaryItemPage = new DiaryItemPage();
-            diaryItemPage.BindingContext = e.SelectedItem as DiaryItemViewModel;
-            Navigation.PushAsync(diaryItemPage);
-            */
         }
 
         private void Back()
