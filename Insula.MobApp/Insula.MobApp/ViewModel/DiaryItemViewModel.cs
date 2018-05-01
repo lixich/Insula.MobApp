@@ -64,13 +64,13 @@ namespace Insula.MobApp.ViewModel
             private set { DiaryItem.uri = value; }
         }
 
-        public double Insulin
+        public string Insulin
         {
-            get { return DiaryItem.Insulin; }
+            get { return DiaryItem.Insulin.ToString(); }
             set
             {
-                if (DiaryItem.Insulin != value)
-                { DiaryItem.Insulin = value; OnPropertyChanged("Insulin"); OnPropertyChanged("DisplayName"); }
+                if (DiaryItem.Insulin.ToString() != value)
+                { DiaryItem.Insulin = StringConvertToDouble(DiaryItem.Insulin, value, "Insulin");  OnPropertyChanged("DisplayName"); }
             }
         }
         public string Time
@@ -82,33 +82,33 @@ namespace Insula.MobApp.ViewModel
                 { DiaryItem.Time = value; OnPropertyChanged("Time"); OnPropertyChanged("DisplayName"); }
             }
         }
-        public double Carbo
+        public string Carbo
         {
-            get { return DiaryItem.Carbo; }
+            get { return DiaryItem.Carbo.ToString(); }
             set
             {
-                if (DiaryItem.Carbo != value)
-                { DiaryItem.Carbo = value; OnPropertyChanged("Carbo"); OnPropertyChanged("DisplayName"); }
+                if (DiaryItem.Carbo.ToString() != value)
+                { DiaryItem.Carbo = StringConvertToDouble(DiaryItem.Carbo, value, "Carbo"); OnPropertyChanged("DisplayName"); }
             }
         }
 
-        public double GlucoseBefore
+        public string GlucoseBefore
         {
-            get { return DiaryItem.GlucoseBefore; }
+            get { return DiaryItem.GlucoseBefore.ToString(); }
             set
             {
-                if (DiaryItem.GlucoseBefore != value)
-                { DiaryItem.GlucoseBefore = value; OnPropertyChanged("GlucoseBefore"); }
+                if (DiaryItem.GlucoseBefore.ToString() != value)
+                { DiaryItem.GlucoseBefore = StringConvertToDouble(DiaryItem.GlucoseBefore, value, "GlucoseBefore"); }
             }
         }
 
-        public double GlucoseAfter
+        public string GlucoseAfter
         {
-            get { return DiaryItem.GlucoseAfter; }
+            get { return DiaryItem.GlucoseAfter.ToString(); }
             set
             {
-                if (DiaryItem.GlucoseAfter != value)
-                { DiaryItem.GlucoseAfter = value; OnPropertyChanged("GlucoseAfter"); }
+                if (DiaryItem.GlucoseAfter.ToString() != value)
+                { DiaryItem.GlucoseAfter = StringConvertToDouble(DiaryItem.GlucoseAfter, value, "GlucoseAfter"); }
             }
         }
 
@@ -122,10 +122,10 @@ namespace Insula.MobApp.ViewModel
             get
             {
                 return ((!string.IsNullOrEmpty(Time)) ||
-                    (Insulin <= 0) ||
-                    (Carbo <= 0) ||
-                    (GlucoseBefore <= 0) ||
-                    (GlucoseAfter <= 0));
+                    (DiaryItem.Insulin <= 0) ||
+                    (DiaryItem.Carbo <= 0) ||
+                    (DiaryItem.GlucoseBefore <= 0) ||
+                    (DiaryItem.GlucoseAfter <= 0));
             }
         }
 
@@ -165,6 +165,28 @@ namespace Insula.MobApp.ViewModel
                 DiaryListViewModel.DiaryList.Remove(diaryItemToRemove);
             }
             await Navigation.PopAsync();
+        }
+
+        private double StringConvertToDouble(double oldValue, string newValue, string onPropertyChanged)
+        {
+            if (string.IsNullOrEmpty(newValue))
+            {
+                OnPropertyChanged(onPropertyChanged);
+                return 0;
+            }
+            else
+            {
+                double num = oldValue;
+                if (Double.TryParse(newValue, out num) && oldValue != num)
+                {
+                    OnPropertyChanged(onPropertyChanged);
+                    return num;
+                }
+                else
+                {
+                    return oldValue;
+                }
+            }
         }
 
         protected void OnPropertyChanged(string propName)

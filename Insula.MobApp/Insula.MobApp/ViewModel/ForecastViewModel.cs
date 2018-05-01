@@ -54,13 +54,13 @@ namespace Insula.MobApp.ViewModel
             private set { DiaryItem.UserId = value; }
         }
 
-        public double Insulin
+        public string Insulin
         {
-            get { return DiaryItem.Insulin; }
+            get { return DiaryItem.Insulin.ToString(); }
             set
             {
-                if (DiaryItem.Insulin != value)
-                { DiaryItem.Insulin = value; OnPropertyChanged("Insulin"); }
+                if (DiaryItem.Insulin.ToString() != value)
+                { DiaryItem.Insulin = StringConvertToDouble(DiaryItem.Insulin, value, "Insulin"); }
             }
         }
         public string Time
@@ -72,23 +72,23 @@ namespace Insula.MobApp.ViewModel
                 { DiaryItem.Time = value; OnPropertyChanged("Time"); }
             }
         }
-        public double Carbo
+        public string Carbo
         {
-            get { return DiaryItem.Carbo; }
+            get { return DiaryItem.Carbo.ToString(); }
             set
             {
-                if (DiaryItem.Carbo != value)
-                { DiaryItem.Carbo = value; OnPropertyChanged("Carbo"); }
+                if (DiaryItem.Carbo.ToString() != value)
+                { DiaryItem.Carbo = StringConvertToDouble(DiaryItem.Carbo, value, "Carbo"); }
             }
         }
 
-        public double GlucoseBefore
+        public string GlucoseBefore
         {
-            get { return DiaryItem.GlucoseBefore; }
+            get { return DiaryItem.GlucoseBefore.ToString(); }
             set
             {
-                if (DiaryItem.GlucoseBefore != value)
-                { DiaryItem.GlucoseBefore = value; OnPropertyChanged("GlucoseBefore"); }
+                if (DiaryItem.GlucoseBefore.ToString() != value)
+                { DiaryItem.GlucoseBefore = StringConvertToDouble(DiaryItem.GlucoseBefore, value, "GlucoseBefore"); }
             }
         }
 
@@ -97,9 +97,9 @@ namespace Insula.MobApp.ViewModel
             get
             {
                 return ((!string.IsNullOrEmpty(Time)) ||
-                        (Insulin <= 0) ||
-                        (Carbo <= 0) ||
-                        (GlucoseBefore <= 0));
+                        (DiaryItem.Insulin <= 0) ||
+                        (DiaryItem.Carbo <= 0) ||
+                        (DiaryItem.GlucoseBefore <= 0));
             }
         }
 
@@ -121,7 +121,7 @@ namespace Insula.MobApp.ViewModel
                     _SelectedForecast = value;
                     if (value != null)
                     {
-                        Insulin = value.Value;
+                        Insulin = value.Value.ToString();
                         OnPropertyChanged("Insulin");
                     }
                     OnPropertyChanged("SelectedForecast");
@@ -160,6 +160,28 @@ namespace Insula.MobApp.ViewModel
                 SelectedForecast = ForecastList[0];
             }
             IsBusy = false;
+        }
+
+        private double StringConvertToDouble(double oldValue, string newValue, string onPropertyChanged)
+        {
+            if (string.IsNullOrEmpty(newValue))
+            {
+                OnPropertyChanged(onPropertyChanged);
+                return 0;
+            }
+            else
+            {
+                double num = oldValue;
+                if (Double.TryParse(newValue, out num) && oldValue != num)
+                {
+                    OnPropertyChanged(onPropertyChanged);
+                    return num;
+                }
+                else
+                {
+                    return oldValue;
+                }
+            }
         }
 
         protected void OnPropertyChanged(string propName)

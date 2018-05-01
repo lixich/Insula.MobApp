@@ -15,17 +15,17 @@
                     <Label x:Name="Label_Time" Text="Time"/>
                     <Entry x:Name="Entry_Time" Text="{Binding Path=Time}" Placeholder="Time" />
                     <Label x:Name="Label_Carbo" Text="Carbo" />
-                    <Entry x:Name="Entry_Carbo" Text="{Binding Path=Carbo}" Placeholder="Carbo" />
+                    <Entry x:Name="Entry_Carbo" Text="{Binding Path=Carbo}" Placeholder="Carbo" Keyboard="Numeric"/>
                     <Label x:Name="Label_GlucoseBefore" Text="GlucoseBefore" />
-                    <Entry x:Name="Entry_GlucoseBefore" Text="{Binding Path=GlucoseBefore}" Placeholder="GlucoseBefore" />
+                    <Entry x:Name="Entry_GlucoseBefore" Text="{Binding Path=GlucoseBefore}" Placeholder="GlucoseBefore" Keyboard="Numeric"/>
                     <Label x:Name="Label_Forecast" Text="Forecast" />
                     <StackLayout Orientation="Horizontal">
-                        <Picker ItemsSource="{Binding ForecastList}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedForecast}" HorizontalOptions="FillAndExpand"></Picker>
+                        <Picker ItemsSource="{Binding ForecastList}" ItemDisplayBinding="{Binding DisplayName}" SelectedItem="{Binding SelectedForecast}" HorizontalOptions="FillAndExpand" Title="Algorithms"></Picker>
                         <Button Text="Forecast" Clicked="Button_Clicked_Forecast" HorizontalOptions="End"/>
                     </StackLayout>
                     <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}" />
                     <Label x:Name="Label_Insulin" Text="Insulin" />
-                    <Entry x:Name="Entry_Insulin" Text="{Binding Path=Insulin}" Placeholder="Insulin" />
+                    <Entry x:Name="Entry_Insulin" Text="{Binding Path=Insulin}" Placeholder="Insulin" Keyboard="Numeric"/>
                     <Button Text="Save" Clicked="Button_Clicked_Save" />
                 </StackLayout>
             </StackLayout>

@@ -60,22 +60,24 @@ namespace Insula.MobApp.ViewModel
                 { User.Birthday = value; OnPropertyChanged("Birthday"); }
             }
         }
-        public double Weight
+        public string Weight
         {
-            get { return User.Weight; }
+            get { return User.Weight.ToString(); }
             set
             {
-                if (User.Weight != value)
-                { User.Weight = value; OnPropertyChanged("Weight"); }
+                if (User.Weight.ToString() != value)
+                { User.Weight = StringConvertToDouble(User.Weight, value, "Weight"); }
             }
         }
-        public double Growth
+
+
+        public string Growth
         {
-            get { return User.Growth; }
+            get { return User.Growth.ToString(); }
             set
             {
-                if (User.Growth != value)
-                { User.Growth = value; OnPropertyChanged("Growth"); }
+                if (User.Growth.ToString() != value)
+                { User.Growth = StringConvertToDouble(User.Growth, value, "Growth"); }
             }
         }
         public string Insulin
@@ -87,13 +89,13 @@ namespace Insula.MobApp.ViewModel
                 { User.Insulin = value; OnPropertyChanged("Insulin"); }
             }
         }
-        public double NormalGlucose
+        public string NormalGlucose
         {
-            get { return User.NormalGlucose; }
+            get { return User.NormalGlucose.ToString(); }
             set
             {
-                if (User.Weight != value)
-                { User.Weight = value; OnPropertyChanged("NormalGlucose"); }
+                if (User.NormalGlucose.ToString() != value)
+                { User.NormalGlucose = StringConvertToDouble(User.NormalGlucose, value, "NormalGlucose"); }
             }
         }
         public bool IsValid
@@ -104,7 +106,7 @@ namespace Insula.MobApp.ViewModel
                     (!string.IsNullOrEmpty(Password)) ||
                     (!string.IsNullOrEmpty(Insulin)) ||
                     (!string.IsNullOrEmpty(Password)) ||
-                    (NormalGlucose <= 0));
+                    (User.NormalGlucose >= 0));
             }
         }
 
@@ -156,6 +158,28 @@ namespace Insula.MobApp.ViewModel
                 else
                 {
                     await Page.DisplayAlert("Fields", "Fields not correct or empty.", "OK");
+                }
+            }
+        }
+
+        private double StringConvertToDouble(double oldValue, string newValue, string onPropertyChanged)
+        {
+            if (string.IsNullOrEmpty(newValue))
+            {
+                OnPropertyChanged(onPropertyChanged);
+                return 0;
+            }
+            else
+            {
+                double num = oldValue;
+                if (Double.TryParse(newValue, out num) && oldValue != num)
+                {
+                    OnPropertyChanged(onPropertyChanged);
+                    return num;
+                }
+                else
+                {
+                    return oldValue;
                 }
             }
         }
