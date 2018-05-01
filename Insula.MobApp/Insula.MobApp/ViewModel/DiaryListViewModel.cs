@@ -60,12 +60,12 @@ namespace Insula.MobApp.ViewModel
 
         private void CreateDiaryItem()
         {
-            Navigation.PushAsync(new DiaryItemPage(new DiaryItemViewModel() { DiaryListViewModel = this, Page = this.Page }));
+            Navigation.PushAsync(new DiaryItemPage(new DiaryItemViewModel() { DiaryListViewModel = this, Page = this.Page, Navigation = this.Navigation }));
         }
 
         public void Add()
         {
-            Navigation.PushAsync(new DiaryItemPage());
+            Navigation.PushAsync(new DiaryItemPage(new DiaryItemViewModel() { DiaryListViewModel = this, Page = this.Page, Navigation = this.Navigation }));
         }
 
         public void Logout()

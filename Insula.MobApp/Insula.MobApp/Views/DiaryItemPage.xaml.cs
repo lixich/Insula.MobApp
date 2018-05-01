@@ -15,6 +15,7 @@ namespace Insula.MobApp.Views
 	public partial class DiaryItemPage : ContentPage
 	{
         public DiaryItemViewModel DiaryItemViewModel { get; private set; }
+
         public DiaryItemPage ()
 		{
 			InitializeComponent();

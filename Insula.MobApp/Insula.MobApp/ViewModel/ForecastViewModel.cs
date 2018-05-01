@@ -118,10 +118,20 @@ namespace Insula.MobApp.ViewModel
         {
             get
             {
-                return ((Time != null) ||
-                        (DiaryItem.Insulin <= 0) ||
-                        (DiaryItem.Carbo <= 0) ||
-                        (DiaryItem.GlucoseBefore <= 0));
+                return ((Time != null) &&
+                        (DiaryItem.Insulin >= 0) &&
+                        (DiaryItem.Carbo >= 0) &&
+                        (DiaryItem.GlucoseBefore >= 0));
+            }
+        }
+
+        public bool IsValidForForecast
+        {
+            get
+            {
+                return ((Time != null) &&
+                        (DiaryItem.Carbo >= 0) &&
+                        (DiaryItem.GlucoseBefore >= 0));
             }
         }
 
@@ -164,24 +174,36 @@ namespace Insula.MobApp.ViewModel
 
         public async void Save()
         {
-            DiaryItem.UserId = App.User.Id;
-            DiaryItem.GlucoseAfter = App.User.NormalGlucose;
-            DiaryItem = await App.RestService.PostResponse<DiaryItem>(Constants.DiaryUrl, JsonConvert.SerializeObject(DiaryItem));
-            DiaryListViewModel.DiaryList.Add(new DiaryItemViewModel(Page, DiaryItem));
-            await Navigation.PopAsync();
+            if (IsValid)
+            {
+                DiaryItem.UserId = App.User.Id;
+                DiaryItem.GlucoseAfter = App.User.NormalGlucose;
+                DiaryItem = await App.RestService.PostResponse<DiaryItem>(Constants.DiaryUrl, JsonConvert.SerializeObject(DiaryItem));
+                DiaryListViewModel.DiaryList.Add(new DiaryItemViewModel(Page, DiaryItem));
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                await Page.DisplayAlert("Fields", "Fields not correct or empty.", "OK");
+            }
         }
 
         public async void Forecast()
         {
-            IsBusy = true;
-            /*ForecastList = new ObservableCollection<Forecast>() { new Forecast() { Value = 1, Name = "name1" },
-                                                                  new Forecast() { Value = 2, Name = "name2"  }};*/
-            ForecastList = await App.RestService.PostResponse<ObservableCollection<Forecast>>(Constants.ForecastUrl, JsonConvert.SerializeObject(DiaryItem));
-            if (ForecastList.Count > 0)
+            if (IsValidForForecast)
             {
-                SelectedForecast = ForecastList[0];
+                IsBusy = true;
+                ForecastList = await App.RestService.PostResponse<ObservableCollection<Forecast>>(Constants.ForecastUrl, JsonConvert.SerializeObject(DiaryItem));
+                if (ForecastList.Count > 0)
+                {
+                    SelectedForecast = ForecastList[0];
+                }
+                IsBusy = false;
             }
-            IsBusy = false;
+            else
+            {
+                await Page.DisplayAlert("Fields", "Fields not correct or empty.", "OK");
+            }
         }
 
         private double StringConvertToDouble(double oldValue, string newValue, string onPropertyChanged)

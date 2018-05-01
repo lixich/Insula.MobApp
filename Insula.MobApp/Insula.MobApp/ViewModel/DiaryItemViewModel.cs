@@ -17,13 +17,13 @@ namespace Insula.MobApp.ViewModel
 
         public DiaryItemViewModel()
         {
-            DiaryItem = new DiaryItem();
+            DiaryItem = new DiaryItem() { Time = DateTime.Now };
         }
 
         public DiaryItemViewModel(Page page)
         {
             Page = page;
-            DiaryItem = new DiaryItem();
+            DiaryItem = new DiaryItem() { Time = DateTime.Now };
         }
 
         public DiaryItemViewModel(Page page, DiaryItem diaryItem)
@@ -145,33 +145,40 @@ namespace Insula.MobApp.ViewModel
         {
             get
             {
-                return ((Time != null) ||
-                    (DiaryItem.Insulin <= 0) ||
-                    (DiaryItem.Carbo <= 0) ||
-                    (DiaryItem.GlucoseBefore <= 0) ||
-                    (DiaryItem.GlucoseAfter <= 0));
+                return ((Time != null) &&
+                    (DiaryItem.Insulin >= 0) &&
+                    (DiaryItem.Carbo >= 0) &&
+                    (DiaryItem.GlucoseBefore >= 0) &&
+                    (DiaryItem.GlucoseAfter >= 0));
             }
         }
 
         public async void Save()
         {
-            if (DiaryItem.Id == 0)
+            if (IsValid)
             {
-                DiaryItem.UserId = App.User.Id;
-                DiaryItem = await App.RestService.PostResponse<DiaryItem>(Constants.DiaryUrl, JsonConvert.SerializeObject(DiaryItem));
-                DiaryListViewModel.DiaryList.Add(this);
+                if (DiaryItem.Id == 0)
+                {
+                    DiaryItem.UserId = App.User.Id;
+                    DiaryItem = await App.RestService.PostResponse<DiaryItem>(Constants.DiaryUrl, JsonConvert.SerializeObject(DiaryItem));
+                    DiaryListViewModel.DiaryList.Add(this);
+                }
+                else
+                {
+                    DiaryItem = await App.RestService.PutResponse<DiaryItem>(DiaryItem.uri, JsonConvert.SerializeObject(DiaryItem));
+                    for (int i = 0; i < DiaryListViewModel.DiaryList.Count; i++)
+                    {
+                        var diaryItem = DiaryListViewModel.DiaryList[i];
+                        if (diaryItem.Id == DiaryItem.Id)
+                            DiaryListViewModel.DiaryList[i] = this;
+                    }
+                }
+                await Navigation.PopAsync();
             }
             else
             {
-                DiaryItem = await App.RestService.PutResponse<DiaryItem>(DiaryItem.uri, JsonConvert.SerializeObject(DiaryItem));
-                for (int i = 0; i < DiaryListViewModel.DiaryList.Count; i++)
-                {
-                    var diaryItem = DiaryListViewModel.DiaryList[i];
-                    if (diaryItem.Id == DiaryItem.Id)
-                        DiaryListViewModel.DiaryList[i] = this;
-                }
+                await Page.DisplayAlert("Fields", "Fields not correct or empty.", "OK");
             }
-            await Navigation.PopAsync();
         }
 
         public async void Delete()
@@ -187,8 +194,12 @@ namespace Insula.MobApp.ViewModel
                         diaryItemToRemove = diaryItem;
                 }
                 DiaryListViewModel.DiaryList.Remove(diaryItemToRemove);
+                await Navigation.PopAsync();
             }
-            await Navigation.PopAsync();
+            else
+            {
+                await Page.DisplayAlert("Delete", "Error deleting, try to update the data.", "OK");
+            }
         }
 
         private double StringConvertToDouble(double oldValue, string newValue, string onPropertyChanged)

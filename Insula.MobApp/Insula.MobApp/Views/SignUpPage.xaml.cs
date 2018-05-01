@@ -15,11 +15,20 @@ namespace Insula.MobApp.Views
 	public partial class SignUpPage : ContentPage
 	{
         public SignUpViewModel SignUpViewModel { get; private set; }
+
         public SignUpPage ()
 		{
 			InitializeComponent ();
             Init();
             SignUpViewModel = new SignUpViewModel(this) { Navigation = this.Navigation };
+            this.BindingContext = SignUpViewModel;
+        }
+
+        public SignUpPage(SignUpViewModel signUpViewModel)
+        {
+            InitializeComponent();
+            Init();
+            SignUpViewModel = signUpViewModel;
             this.BindingContext = SignUpViewModel;
         }
 

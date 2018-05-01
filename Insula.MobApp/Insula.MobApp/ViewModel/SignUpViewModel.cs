@@ -20,7 +20,7 @@ namespace Insula.MobApp.ViewModel
         public SignUpViewModel(Page page)
         {
             Page = page; 
-            User = App.User;
+            User = (User) App.User.Clone();
         }
 
         public int Id
@@ -102,10 +102,11 @@ namespace Insula.MobApp.ViewModel
         {
             get
             {
-                return ((!string.IsNullOrEmpty(Username)) ||
-                    (!string.IsNullOrEmpty(Password)) ||
-                    (!string.IsNullOrEmpty(Insulin)) ||
-                    (!string.IsNullOrEmpty(Password)) ||
+                return ((!string.IsNullOrEmpty(Username)) &&
+                    (!string.IsNullOrEmpty(Password)) &&
+                    (!string.IsNullOrEmpty(Insulin)) &&
+                    (!string.IsNullOrEmpty(Password)) &&
+                    (Birthday != null) &&
                     (User.NormalGlucose >= 0));
             }
         }
@@ -125,28 +126,33 @@ namespace Insula.MobApp.ViewModel
         public async void Save()
         {
             Label_Message = "";
-            if (!App.IsAuthorized())
+            if (!IsValid)
             {
-                var user = await App.RestService.PostResponse<User>(Constants.UserUrl, JsonConvert.SerializeObject(User));
-                if (user != null)
-                {
-                    App.User = user;
-                    await Page.DisplayAlert("Settings", "Sign up success", "OK");
-                    Navigation.InsertPageBefore(new DiaryListPage(), Navigation.NavigationStack[0]);
-                    await Navigation.PopToRootAsync();
-                }
-                else
-                {
-                    Label_Message = "Sign up failed";
-                }
+                await Page.DisplayAlert("Fields", "Fields not correct or empty.", "OK");
             }
             else
             {
-                if (IsValid)
+                if (!App.IsAuthorized())
+                {
+                    var user = await App.RestService.PostResponse<User>(Constants.UserUrl, JsonConvert.SerializeObject(User));
+                    if (user != null)
+                    {
+                        App.User = user;
+                        await Page.DisplayAlert("Settings", "Sign up success", "OK");
+                        Navigation.InsertPageBefore(new DiaryListPage(), Navigation.NavigationStack[0]);
+                        await Navigation.PopToRootAsync();
+                    }
+                    else
+                    {
+                        Label_Message = "Sign up failed";
+                    }
+                }
+                else
                 {
                     var user = await App.RestService.PutResponse<User>(uri, JsonConvert.SerializeObject(User));
                     if (user != null)
                     {
+                        App.User = user;
                         await Page.DisplayAlert("Settings", "Save success", "OK");
                         await Navigation.PopAsync();
                     }
@@ -154,10 +160,6 @@ namespace Insula.MobApp.ViewModel
                     {
                         Label_Message = "Save failed";
                     }
-                }
-                else
-                {
-                    await Page.DisplayAlert("Fields", "Fields not correct or empty.", "OK");
                 }
             }
         }
