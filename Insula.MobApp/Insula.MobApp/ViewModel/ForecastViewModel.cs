@@ -193,6 +193,7 @@ namespace Insula.MobApp.ViewModel
             if (IsValidForForecast)
             {
                 IsBusy = true;
+                DiaryItem.GlucoseAfter = App.User.NormalGlucose;
                 ForecastList = await App.RestService.PostResponse<ObservableCollection<Forecast>>(Constants.ForecastUrl, JsonConvert.SerializeObject(DiaryItem));
                 if (ForecastList.Count > 0)
                 {
