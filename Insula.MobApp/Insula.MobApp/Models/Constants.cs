@@ -16,8 +16,8 @@ namespace Insula.MobApp.Models
         public static int LogoIconHeight = 150;
 
         //-----Url-----
-        public static string Url = "http://192.168.0.102:5000/";
-        //public static string Url = "http://lixich.pythonanywhere.com/";
+        //public static string Url = "http://192.168.0.102:5000/";
+        public static string Url = "https://3290279b.ngrok.io/";
         public static string UserUrl = Url + "user/";
         public static string DiaryUrl = Url + "dose/";
         public static string ForecastUrl = Url + "forecast/";
