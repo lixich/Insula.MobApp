@@ -96,6 +96,7 @@ C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debu
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\bin\Debug\Insula.MobApp.Android.dll
+C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\Insula.MobApp.pdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\Insula.MobApp.Android.dll.mdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\lixic\GitHub\Insula.MobApp\Insula.MobApp\Insula.MobApp.Android\obj\Debug\linksrc\Xamarin.Forms.Core.dll.mdb

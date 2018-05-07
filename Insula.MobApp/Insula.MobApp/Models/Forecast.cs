@@ -15,7 +15,7 @@ namespace Insula.MobApp.Models
         {
             get
             {
-                return $"{Value} - {Name} ({Accuracy})";
+                return $"{Value, -2} - {Name} ({Accuracy})";
             }
         }
 

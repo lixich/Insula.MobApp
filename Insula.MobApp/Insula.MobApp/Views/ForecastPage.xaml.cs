@@ -28,6 +28,7 @@ namespace Insula.MobApp.Views
             InitializeComponent();
             Init();
             ForecastViewModel = forecastViewModel;
+            ForecastViewModel.Page = this;
             this.BindingContext = ForecastViewModel;
         }
 
