@@ -17,7 +17,7 @@ namespace Insula.MobApp.Models
 
         //-----Url-----
         //public static string Url = "http://192.168.0.102:5000/";
-        public static string Url = "https://a788ac98.ngrok.io/";
+        public static string Url = "https://c813a93c.ngrok.io/";
         public static string UserUrl = Url + "user/";
         public static string DiaryUrl = Url + "dose/";
         public static string ForecastUrl = Url + "forecast/";

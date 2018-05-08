@@ -25,7 +25,7 @@
                     <Label x:Name="Label_GlucoseAfter" Text="GlucoseAfter" />
                     <Entry x:Name="Entry_GlucoseAfter" Text="{Binding Path=GlucoseAfter}" Placeholder="GlucoseAfter" Keyboard="Numeric" />
                     <Button Text="Save" Clicked="Button_Clicked_Save" />
-                    <Button Text="Delete" Clicked="Button_Clicked_Delete" />
+                    <Button Text="Delete" Clicked="Button_Clicked_Delete" IsVisible="{Binding CanDelete}"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

@@ -2984,8 +2984,8 @@ containing a value of this type.
         public static int ic_vol_type_tv_dark=0x7f0200ea;
         public static int ic_vol_type_tv_light=0x7f0200eb;
         public static int icon=0x7f0200ec;
-        public static int logoicon=0x7f0200ed;
-        public static int logoiconsmall=0x7f0200ee;
+        public static int logo=0x7f0200ed;
+        public static int logoicon=0x7f0200ee;
         public static int mr_button_connected_dark=0x7f0200ef;
         public static int mr_button_connected_light=0x7f0200f0;
         public static int mr_button_connecting_dark=0x7f0200f1;

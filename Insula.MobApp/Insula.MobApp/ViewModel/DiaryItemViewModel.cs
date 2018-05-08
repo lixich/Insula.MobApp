@@ -46,6 +46,16 @@ namespace Insula.MobApp.ViewModel
             }
         }
 
+        public bool CanDelete
+        {
+            get
+            {
+                if (DiaryItem.Id == 0)
+                    return false;
+                else return true;
+            }
+        }
+
         public int Id
         {
             get { return DiaryItem.Id; }
