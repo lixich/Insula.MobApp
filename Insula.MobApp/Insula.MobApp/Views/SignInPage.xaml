@@ -6,28 +6,30 @@
         <ToolbarItem Text="Sign Up" Clicked="ToolbarItem_Clicked_SignUp" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout x:Name="MasterLayout">
-            <StackLayout x:Name="LogoStack">
-                <Label x:Name="Label_Internet" HorizontalOptions="Center" TextColor="White" BackgroundColor="Red"/>
-                <Image x:Name="LogoIcon" Source="Logo.png" Margin="0,0,0,0"/>
+        <ScrollView>
+            <StackLayout x:Name="MasterLayout">
+                <StackLayout x:Name="LogoStack">
+                    <Label x:Name="Label_Internet" HorizontalOptions="Center" TextColor="White" BackgroundColor="Red"/>
+                    <Image x:Name="LogoIcon" Source="Logo.png" Margin="0,0,0,0"/>
+                </StackLayout>
+                <StackLayout x:Name="LoginEntryStack" VerticalOptions="StartAndExpand">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness">
+                            <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
+                            <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+                        </OnIdiom>
+                    </StackLayout.Padding>
+                    <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}" />
+                    <!--<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="1, 1, 1, 1" BackgroundColor="White" Opacity="0.5"   AbsoluteLayout.LayoutFlags="All" x:Name="AbsoluteLayoutFrame" IsVisible="false">
+                        <ActivityIndicator x:Name="ActivitySpinner" IsVisible="false" IsRunning="true" HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="1, 1, 1, 1" Color="Red" AbsoluteLayout.LayoutFlags="All"/>
+                    </AbsoluteLayout>-->
+                    <Label x:Name="Label_Username" Text="Username" />
+                    <Entry x:Name="Entry_Username" Text="{Binding Username}" Placeholder="Username"/>
+                    <Label x:Name="Label_Password" Text="Password" />
+                    <Entry x:Name="Entry_Password" Text="{Binding Password}" Placeholder="Password" IsPassword="true"/>
+                    <Button x:Name="Button_SignIn" Text="Sign in" Clicked="Button_Clicked_SignIn"/>
+                </StackLayout>
             </StackLayout>
-            <StackLayout x:Name="LoginEntryStack" VerticalOptions="StartAndExpand">
-                <StackLayout.Padding>
-                    <OnIdiom x:TypeArguments="Thickness">
-                        <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
-                        <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
-                    </OnIdiom>
-                </StackLayout.Padding>
-                <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsVisible="{Binding IsBusy}"  IsRunning="{Binding IsBusy}" />
-                <!--<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="1, 1, 1, 1" BackgroundColor="White" Opacity="0.5"   AbsoluteLayout.LayoutFlags="All" x:Name="AbsoluteLayoutFrame" IsVisible="false">
-                    <ActivityIndicator x:Name="ActivitySpinner" IsVisible="false" IsRunning="true" HorizontalOptions="Center" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="1, 1, 1, 1" Color="Red" AbsoluteLayout.LayoutFlags="All"/>
-                </AbsoluteLayout>-->
-                <Label x:Name="Label_Username" Text="Username" />
-                <Entry x:Name="Entry_Username" Text="{Binding Username}" Placeholder="Username"/>
-                <Label x:Name="Label_Password" Text="Password" />
-                <Entry x:Name="Entry_Password" Text="{Binding Password}" Placeholder="Password" IsPassword="true"/>
-                <Button x:Name="Button_SignIn" Text="Sign in" Clicked="Button_Clicked_SignIn"/>
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
